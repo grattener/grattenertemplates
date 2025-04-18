@@ -1,0 +1,83 @@
+####################################################################################
+# AMP Generic Module Configuration for JDownloader 2 Headless (via Docker)         #
+# Generated via AMP Config Generator & Manually Edited                             #
+# Author: Community / AI / Linuxserver.io                                          #
+# Description: Runs the linuxserver/jdownloader-2 Docker image (Multi-Arch).     #
+# Compatible with amd64 and arm64. Managed via MyJDownloader.                      #
+# Requires Docker to be enabled and working within AMP.                            #
+#                                                                                  #
+# !!! IMPORTANT !!!                                                                #
+# User MUST configure Volume Mappings in the AMP instance settings:                #
+#   - Map a HOST directory -> /config                                              #
+#   - Map a HOST directory -> /downloads                                           #
+# User SHOULD configure PUID/PGID/TZ in AMP App Settings (defined in JSON).        #
+####################################################################################
+
+# Application Settings - Defines how AMP runs the application
+App.DisplayName=JDownloader 2 Headless (Docker - Linuxserver)
+App.RootDir=./
+App.WorkingDir=./
+App.BaseDirectory=./ # Adjusted from generator default
+App.ExecutableWin=
+App.ExecutableLinux=/bin/true # Dummy executable as Docker handles the actual start
+App.Compatibility=0 # Added default value
+App.CommandLineArgs=
+# AppSettings: Stores user-configurable values from JSON manifest.
+App.AppSettings={"PUID": "1000", "PGID": "1000", "TZ": "Etc/UTC"} # Added manually
+# EnvironmentVariables: Passed INTO the Docker container. Uses values from AppSettings.
+App.EnvironmentVariables={"PUID": "{{PUID}}", "PGID": "{{PGID}}", "TZ": "{{TZ}}"} # Added manually
+App.CommandLineParameterFormat=-{0} "{1}" # Kept from generator, though not used
+App.CommandLineParameterDelimiter=  # Kept from generator, though not used
+App.ExitMethod=SIGTERM # Corrected from 'String' - Essential for Docker
+App.ExitString= # Cleared - Not needed with SIGTERM
+App.HasWriteableConsole=true # Corrected typo from HasWritableConsole if present
+App.HasReadableConsole=true
+App.IgnoreSTDOUTAfterRCON=False # Added default value
+App.ApplicationIPBinding=0.0.0.0 # Added default value
+App.ForceIPBinding=False # Added default value
+App.SupportsIPv6=False # Added default value
+# Ports set to 0 as not needed for MyJDownloader by default
+App.ApplicationPort1=0 # Added Manually / Corrected
+App.ApplicationPort2=0 # Added Manually / Corrected
+App.ApplicationPort3=0 # Added Manually / Corrected
+App.RemoteAdminPort=0 # Added default value
+App.RemoteAdminPassword= # Added default value
+App.UseRandomAdminPassword=False # Added default value
+App.AdminLoginTransform=None # Added default value
+App.MaxUsers=0 # Added default value
+App.AdminMethod=STDIO # Kept from generator
+App.UpdateSource=None # Kept from generator
+App.UpdateSources=[] # Added for clarity, same as UpdateSource=None
+App.UDPLogger=False # Added default value
+App.SteamUpdateAnonymousLogin=False # Added default value
+App.SteamForceWindowsVersion=False # Added default value
+App.SteamForceLoginPrompt=False # Added default value
+App.RapidStartup=false # Kept from generator
+App.MonitorChildProcessName= # Added default value
+
+# Console Settings - How AMP interprets the application's output
+App.ApplicationReadyMode=RegexMatch # Kept from generator
+Console.FilterMatchRegex= # Added default value
+Console.FilterMatchReplacement= # Added default value
+Console.AppReadyRegex=^.*(MyJDownloader(.*)registered|MyJDownloader connection established|Headless JDownloader(.*)started).*$ # Kept from generator
+Console.UserJoinRegex=^AMP_VALIDATOR_PLACEHOLDER_IGNORE_THIS$ # Kept from generator (validator workaround)
+Console.UserLeaveRegex=^AMP_VALIDATOR_PLACEHOLDER_IGNORE_THIS$ # Kept from generator (validator workaround)
+Console.UserChatRegex=^AMP_VALIDATOR_PLACEHOLDER_IGNORE_THIS$ # Kept from generator (validator workaround)
+Console.ThrowawayMessageRegex= # Kept from generator
+
+# Meta Settings - Information about this configuration
+Meta.DisplayName=JDownloader 2 Headless (Docker - Linuxserver) # Kept from generator
+Meta.OS=3 # Changed to 3 (Both) as image is multi-arch
+Meta.AppConfigId=882e5b44-c4f3-4411-af5e-3aae97d9b435 # Added user's UUID
+Meta.Author=Community / AI # Kept from generator
+Meta.URL=https://hub.docker.com/r/linuxserver/jdownloader-2 # Kept from generator
+Meta.Description=Runs the linuxserver/jdownloader-2 Docker image (Multi-Arch). Managed via MyJDownloader. # Kept from generator
+Meta.DisplayImageSource=none: # Changed from url:
+Meta.EndpointURIFormat= # Kept from generator
+Meta.ConfigManifest=jdownloader-2-headless-docker---linuxserverconfig.json # Kept from generator
+Meta.MetaConfigManifest= # Added default value
+Meta.ConfigRoot=jdownloader-2-headless-docker---linuxserver.kvp # Kept from generator
+# !!! CRITICAL: Specifies the Docker image to use !!!
+Meta.SpecificDockerImage=linuxserver/jdownloader-2:latest # Added manually
+Meta.ExtraContainerPackages=[] # Added default value
+Meta.ContainerPolicy=Supported # Added manually (or use RequiredOnLinux)

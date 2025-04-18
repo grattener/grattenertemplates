@@ -1,0 +1,41 @@
+[
+    {
+        "DisplayName": "User ID (PUID)",
+        "Category": "Container Settings",
+        "Description": "User ID for JDownloader process inside Docker ",
+        "Keywords": "docker, user, id, permissions, puid",
+        "FieldName": "PUID",
+        "InputType": "number",
+        "IsFlagArgument": false,
+        "ParamFieldName": "PUID",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "1000",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Group ID (PGID)",
+        "Category": "Container Settings",
+        "Description": "Group ID for JDownloader process inside Docker (match host group).",
+        "Keywords": "docker, group, id, permissions, pgid",
+        "FieldName": "PGID",
+        "InputType": "number",
+        "IsFlagArgument": false,
+        "ParamFieldName": "PGID",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "1000",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Timezone (TZ)",
+        "Category": "Container Settings",
+        "Description": "Container timezone (e.g., Europe/Madrid). Use TZ database names.",
+        "Keywords": "docker, time, timezone, tz",
+        "FieldName": "TZ",
+        "InputType": "text",
+        "IsFlagArgument": false,
+        "ParamFieldName": "TZ",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "Etc/UTC",
+        "EnumValues": {}
+    }
+]
